@@ -1,12 +1,7 @@
 import java.io.*;
-<<<<<<< HEAD
-import java.util.*;
-
-=======
 import java.util.ArrayList;
 import java.util.HashMap;
 import util.LogDog;
->>>>>>> new
 /*
 *Spec.Inc.
 *2018.10.19
@@ -18,13 +13,9 @@ import util.LogDog;
 *18-10-17 Android Version
 *18-10-18 read nullLine
 *18-10-21 read marked line
-<<<<<<< HEAD
-*18-10-24 new version 0.2
-=======
 *18-10-24 new version
 *18-10-29 clean up code
 *18-10-31 Helloween~ add a new future
->>>>>>> new
 */
 
 public class Counter
@@ -38,18 +29,13 @@ public class Counter
 	private int nullLine = 0;
 	private int markLine = 0;
 	private String line;
-<<<<<<< HEAD
-	private File[] files;
-	
-
-=======
 	private String path;
 	private File[] files;
 	
 	Counter(String path){
 		this.path = path;
 	}
->>>>>>> new
+
 	
 	private boolean isThatFile(String name){
 		if(name.indexOf(".")>0){
@@ -67,10 +53,7 @@ public class Counter
 	}
 	
 	public void printInfo(){
-<<<<<<< HEAD
-=======
 		System.out.println("工程："+(getProjName()));
->>>>>>> new
 		System.out.println("一共检索了：" + totalFile + "个文件");
 		System.out.println("有"+nullLine+"条空行");
 		System.out.println("有"+markLine+"条注释行");
@@ -80,11 +63,7 @@ public class Counter
 		
 		HashMap map = new HashMap();
 		ArrayList total = new ArrayList();
-<<<<<<< HEAD
-		ArrayList<String> paths = new ArrayList<>();
-=======
 		ArrayList<String> paths = new ArrayList<String>();
->>>>>>> new
 		
 		map.put("Total Files:",totalFile);
 		for(File f:this.files){
@@ -105,12 +84,6 @@ public class Counter
 		return info;
 	}
 	
-<<<<<<< HEAD
-	private boolean isMarkedLine(String line){
-		//将缩进排除！
-		String nline = line.replace("\t","");
-		if(nline.startsWith("//")||nline.startsWith("/*")||nline.startsWith("*")){
-=======
 	public int ReadLine(){
 		File f = new File(this.path);
 		int t =CountLine(f.listFiles());
@@ -120,17 +93,13 @@ public class Counter
 	private boolean isMarkedLine(String line){
 		String nline = line.replaceAll("\t","");
 		if(nline.startsWith("//")||nline.startsWith("/*")||nline.startsWith("*")||nline.startsWith("*/")||nline.startsWith(" *")){
->>>>>>> new
+
 			return true;
 		}else{
 			return false;
 		}
 	}
 	
-<<<<<<< HEAD
-	private boolean isNullLine(String line){
-		String nline = line.replace("\t","");
-=======
 	private boolean isSingleMarked(String l){
 		//for mojang style code
 		String line = l.replaceAll("\t","");
@@ -153,7 +122,6 @@ public class Counter
 	
 	private boolean isNullLine(String line){
 		String nline = line.replaceAll("\t","");
->>>>>>> new
 		if(nline.length()<=0){
 			return true;
 		}
@@ -162,54 +130,6 @@ public class Counter
 		}
 	}
 	
-<<<<<<< HEAD
-	public int ReadLine(File[] f)
-	{
-		this.files = f;
-		for (File file:f)
-		{
-			if (file.isFile())
-			{
-				if (isThatFile(file.getName()))
-				{
-					totalFile++;
-					try
-					{
-						reader = new FileReader(file);
-						breader = new BufferedReader(reader);
-
-						try
-						{
-
-							while ((line = breader.readLine()) != null)
-							{
-								totalLine++;
-								
-								if(isNullLine(line)){
-									nullLine++;
-								}
-								if(isMarkedLine(line)){
-									markLine++;
-								}
-							}
-
-						}
-						catch (IOException e)
-						{
-							e.printStackTrace();
-						}
-					}
-					catch (FileNotFoundException e)
-					{
-						e.printStackTrace();
-					}
-				}
-			}
-			else
-			{
-				ReadLine(file.listFiles());
-			}
-=======
 	private int CountLine(File[] f)
 	{
 		try
@@ -267,7 +187,6 @@ public class Counter
 		catch (IOException e)
 		{
 			e.printStackTrace();
->>>>>>> new
 		}
 		return totalLine;
 	}
