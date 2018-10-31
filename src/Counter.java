@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import util.LogDog;
 /*
+*LineCounter Core version 1.0 release
 *Spec.Inc.
 *2018.10.19
 *QZFLS 1601 72/54
@@ -65,6 +66,7 @@ public class Counter
 		ArrayList total = new ArrayList();
 		ArrayList<String> paths = new ArrayList<String>();
 		
+		map.put("FileName",getProjName());
 		map.put("Total Files:",totalFile);
 		for(File f:this.files){
 			paths.add(f.getAbsolutePath());
@@ -80,14 +82,20 @@ public class Counter
 	}
 	
 	public int[] getFullInfo(){
-		int[] info = {totalLine,nullLine,markLine};
+		int[] info = {totalLine,nullLine,markLine,};
 		return info;
 	}
 	
 	public int ReadLine(){
 		File f = new File(this.path);
-		int t =CountLine(f.listFiles());
-		return t;
+		//检测是否是不存在的路径
+		if(f.exists()){
+			int t =CountLine(f.listFiles());
+			return t;
+		}else{
+			return 0;
+		}
+		
 	}
 	
 	private boolean isMarkedLine(String line){

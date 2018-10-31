@@ -4,6 +4,7 @@ import java.util.*;
 public class Main
 {
 	public static void main(String[] a){
+		//这里的注释是为了方便AIDE使用的~
 		
 //		System.out.println("=======LineCounter=======");
 //		System.out.print("请输入语言种类(默认为Java)：");
@@ -18,9 +19,11 @@ public class Main
 //			read("/storage/emulated/0/AppProjects/Lessons")
 //		);
 		String type = "";
+		
+		//p 是文件路径
 		String p =
 
-			"/storage/emulated/0/AppProjects/LineCounter4J/src/test";
+			"/storage/emulated/0/AppProjects/LineCounter4J/src/test1";
 		int line = read(p);
 		if(line != 0){
 			System.out.println("一共有："+line+" 行！");
