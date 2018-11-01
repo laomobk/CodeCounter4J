@@ -178,7 +178,7 @@ public class Counter
 		{
 			System.out.println("oops! Something goes wrong! \n Program will exit in 10 seconds!");
 			new LogDog().addErrorCell(e);
-			e.printStackTrace();
+
 			
 			try
 			{
