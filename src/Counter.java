@@ -40,14 +40,7 @@ public class Counter
 	
 	private boolean isThatFile(String name){
 		if(name.indexOf(".")>0){
-			if(
-			name.substring(name.indexOf(".")+1,name.length()).equals(type)
-			){
-				return true;
-			}
-			else{
-				return false;
-			}
+			return name.substring(name.indexOf(".")+1,name.length()).equals(type);
 		}else{
 			return false;
 		}
@@ -99,24 +92,17 @@ public class Counter
 	}
 	
 	private boolean isMarkedLine(String line){
+		
 		String nline = line.replaceAll("\t","");
-		if(nline.startsWith("//")||nline.startsWith("/*")||nline.startsWith("*")||nline.startsWith("*/")||nline.startsWith(" *")){
+		return nline.startsWith("//")||nline.startsWith("/*")||nline.startsWith("*")||nline.startsWith("*/")||nline.startsWith(" *");
 
-			return true;
-		}else{
-			return false;
-		}
 	}
 	
 	private boolean isSingleMarked(String l){
 		//for mojang style code
 		String line = l.replaceAll("\t","");
 		//System.out.println(line.indexOf("*/")+":"+line.length());
-		if(line.indexOf("*/") < line.length()&&line.indexOf("*/") != -1){
-			return true;
-		}else{
-			return false;
-		}
+		return line.indexOf("*/") < line.length()&&line.indexOf("*/") != -1;
 	}
 	
 	private String getProjName(){
@@ -130,12 +116,7 @@ public class Counter
 	
 	private boolean isNullLine(String line){
 		String nline = line.replaceAll("\t","");
-		if(nline.length()<=0){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return nline.length()<=0;
 	}
 	
 	private int CountLine(File[] f)
