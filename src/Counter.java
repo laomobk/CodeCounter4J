@@ -39,11 +39,12 @@ public class Counter
 
 	
 	private boolean isThatFile(String name){
-		if(name.indexOf(".")>0){
-			return name.substring(name.indexOf(".")+1,name.length()).equals(type);
-		}else{
-			return false;
-		}
+		
+		return name.indexOf(".")>0?
+		name.substring(name.indexOf(".")+1,name.length()).equals(type):
+		false;
+		
+		
 	}
 	
 	public void printInfo(){
